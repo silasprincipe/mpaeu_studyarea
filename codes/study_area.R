@@ -16,6 +16,9 @@ library(mapview)
 # Settings
 sf_use_s2(FALSE)
 
+# Define version
+version <- 2
+
 
 # Load shapefiles ----
 # Load IHO borders
@@ -72,6 +75,8 @@ study.area <- bind_rows(inter.iho, join.iho)
 study.area <- study.area %>%
   filter(iho_sea != "Sea of Azov")
 
+study.area <- study.area[!duplicated(study.area$objectid_1),]
+
 # Plot to see
 ggplot()+
   geom_sf(data = world, fill = "grey40", color = NA) +
@@ -90,4 +95,5 @@ plot(starea.un)
 
 # Save shapefile ----
 fs::dir_create("data/shapefiles")
-st_write(starea.un, "data/shapefiles/mpa_europe_starea.shp")
+st_write(study.area, paste0("data/shapefiles/mpa_europe_starea_eez_v", version, ".shp"))
+st_write(starea.un, paste0("data/shapefiles/mpa_europe_starea_v", version, ".shp"))

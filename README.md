@@ -22,6 +22,26 @@ In progress:
 - Create an expanded study area that will be the base for the SDMs (that
   is, considering nearby areas where species may also be present).
 
+## Available files
+
+Files are stored in **data/shapefiles** and are readily available in
+three versions:
+
+- `mpa_europe_starea_eez_v*.shp`: study area divided by the
+  Marineregions classification (i.e. EEZs intersections with the IHO
+  seas classification). You can group the features by both EEZs and IHO
+  seas, thus providing a good tool for regional based analysis. More
+  information on the Marineregions classification [can be found
+  here.](https://www.marineregions.org/sources.php).
+- `mpa_europe_starea_v*.shp`: study area aggregated as a single polygon.
+  This is the main file for use by the MPA Europe teams.
+- `mpa_europe_starea_laea3035_v*.shp`: study area reprojected for
+  Lambert Azimuthal Equal Area projection (EPSG:3035). It’s the
+  recommended projection for general plotting and presentation of
+  results.
+- `mpa_europe_starea_simple_v*.shp`: a simplified study area. Should be
+  used only for plotting purposes when a simplified version is needed.
+
 ## How the shapefile was generated?
 
 The study area was defined in the MPA Europe project, but a coherent

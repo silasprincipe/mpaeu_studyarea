@@ -18,6 +18,15 @@ In progress:
 
 - Create an expanded study area that will be the base for the SDMs (that is, considering nearby areas where species may also be present).
 
+## Available files
+
+Files are stored in __data/shapefiles__ and are readily available in three versions:
+
+- `mpa_europe_starea_eez_v*.shp`: study area divided by the Marineregions classification (i.e. EEZs intersections with the IHO seas classification). You can group the features by both EEZs and IHO seas, thus providing a good tool for regional based analysis. More information on the Marineregions classification [can be found here.](https://www.marineregions.org/sources.php).
+- `mpa_europe_starea_v*.shp`: study area aggregated as a single polygon. This is the main file for use by the MPA Europe teams.
+- `mpa_europe_starea_laea3035_v*.shp`: study area reprojected for Lambert Azimuthal Equal Area projection (EPSG:3035). It's the recommended projection for general plotting and presentation of results.
+- `mpa_europe_starea_simple_v*.shp`: a simplified study area. Should be used only for plotting purposes when a simplified version is needed.
+
 ## How the shapefile was generated?
 
 The study area was defined in the MPA Europe project, but a coherent working shapefile was lacking. We generated one by first downloading the Marineregions IHO/EEZ intersection map (https://www.marineregions.org/downloads.php#ihoeez), so we could filter by both EEZ and IHO seas, and an Europe map from NaturalEarth (https://www.naturalearthdata.com).
@@ -75,7 +84,7 @@ Thus, we intersected both areas to obtain those EEZ correspondent to the study a
 
 ```{r message=FALSE, warning=FALSE, fig.cap = "The final study area for the MPA Europe project."}
 # Load study area shapefile (see study_area.R) ----
-st.area <- read_sf("data/shapefiles/mpa_europe_starea.shp")
+st.area <- read_sf("data/shapefiles/mpa_europe_starea_v2.shp")
 
 ggplot()+
   geom_sf(data = world, fill = "grey60", color = NA) +
