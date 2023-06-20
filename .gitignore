@@ -1,7 +1,6 @@
 # History files
 .Rhistory
 .Rapp.history
-.DS_Store
 
 # Session Data files
 .RData
@@ -49,3 +48,8 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+.DS_Store
+/*.DS_Store
+
+/data/*
+!/data/shapefiles/
